@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hello, pricing!</title>
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+      color: #202a25;
+      background: #f5f7f2;
+      font-synthesis: none;
+      text-rendering: optimizeLegibility;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      padding: 64px 24px;
+      background: radial-gradient(ellipse at 90% 0%, #e5eee0 0, transparent 36%), #f5f7f2;
+    }
+
+    main {
+      width: min(100%, 880px);
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      color: #54705b;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.4rem, 7vw, 4rem);
+      font-weight: 400;
+      line-height: 1.05;
+    }
+
+    .byline {
+      margin: 14px 0 36px;
+      color: #66716a;
+      font-size: 1rem;
+    }
+
+    .table-wrap {
+      overflow: hidden;
+      border: 1px solid #dce3d9;
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: 0 12px 34px rgb(39 57 43 / 7%);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    th, td {
+      padding: 20px 24px;
+      vertical-align: top;
+    }
+
+    thead { background: #edf2e9; }
+
+    th {
+      color: #526257;
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    tbody tr + tr { border-top: 1px solid #e8ece6; }
+
+    .plan-name {
+      display: block;
+      margin-bottom: 5px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.35rem;
+    }
+
+    .plan-note { color: #707a73; font-size: 0.88rem; }
+
+    .price {
+      white-space: nowrap;
+      font-size: 1.08rem;
+      font-weight: 700;
+    }
+
+    .price small {
+      color: #707a73;
+      font-size: 0.82rem;
+      font-weight: 400;
+    }
+
+    ul {
+      display: grid;
+      gap: 7px;
+      margin: 0;
+      padding-left: 18px;
+      color: #46534a;
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 620px) {
+      body { padding: 40px 18px; }
+      .byline { margin-bottom: 28px; }
+
+      .table-wrap {
+        overflow: visible;
+        border: 0;
+        background: transparent;
+        box-shadow: none;
+      }
+
+      table, tbody { display: block; }
+      thead { display: none; }
+
+      tbody tr {
+        display: grid;
+        gap: 16px;
+        margin-bottom: 14px;
+        padding: 20px;
+        border: 1px solid #dce3d9;
+        border-radius: 8px;
+        background: #fff;
+      }
+
+      tbody tr + tr { border-top: 1px solid #dce3d9; }
+      td { padding: 0; }
+      td[data-label]::before {
+        display: block;
+        margin-bottom: 7px;
+        color: #68766b;
+        content: attr(data-label);
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="eyebrow">Plans for Acorn</p>
+    <h1>Hello, pricing!</h1>
+    <p class="byline">A little something for every kind of grower. By Jackie.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Plan</th>
+            <th scope="col">Monthly price</th>
+            <th scope="col">Features</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Plan"><span class="plan-name">Free</span><span class="plan-note">A fresh start</span></td>
+            <td data-label="Monthly price"><span class="price">€0 <small>/ month</small></span></td>
+            <td data-label="Features"><ul><li>1 garden</li><li>Planting calendar</li><li>Community tips</li></ul></td>
+          </tr>
+          <tr>
+            <td data-label="Plan"><span class="plan-name">Basic</span><span class="plan-note">Room to grow</span></td>
+            <td data-label="Monthly price"><span class="price">€5 <small>/ month</small></span></td>
+            <td data-label="Features"><ul><li>5 gardens</li><li>Personalized reminders</li><li>Seasonal guides</li></ul></td>
+          </tr>
+          <tr>
+            <td data-label="Plan"><span class="plan-name">Pro</span><span class="plan-note">Your green thumb, unleashed</span></td>
+            <td data-label="Monthly price"><span class="price">€12 <small>/ month</small></span></td>
+            <td data-label="Features"><ul><li>Unlimited gardens</li><li>Advanced garden insights</li><li>Priority expert advice</li></ul></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+</body>
+</html>
