@@ -3,188 +3,482 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello, pricing!</title>
+  <title>Farm2Door – Organic vegetable boxes delivered weekly</title>
+  <meta name="description" content="Farm2Door delivers fresh, certified organic vegetable boxes from 12 partner farms to your front door every week.">
   <style>
     :root {
-      color-scheme: light;
-      font-family: "Avenir Next", Avenir, "Segoe UI", sans-serif;
-      color: #202a25;
-      background: #f5f7f2;
-      font-synthesis: none;
-      text-rendering: optimizeLegibility;
+      --brand: #4F8F00;
+      --brand-dark: #3d6f00;
+      --text: #1f2a1a;
+      --muted: #4a5546;
+      --line: #e3e8de;
+      --soft: #f5f8f1;
+      --white: #ffffff;
     }
 
     * { box-sizing: border-box; }
 
+    html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
-      min-height: 100vh;
-      padding: 64px 24px;
-      background: radial-gradient(ellipse at 90% 0%, #e5eee0 0, transparent 36%), #f5f7f2;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 1.0625rem;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--white);
+      overflow-wrap: break-word;
     }
 
-    main {
-      width: min(100%, 880px);
-      margin: 0 auto;
-    }
-
-    .eyebrow {
-      margin: 0 0 12px;
-      color: #54705b;
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    h1 {
-      margin: 0;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(2.4rem, 7vw, 4rem);
-      font-weight: 400;
-      line-height: 1.05;
-    }
-
-    .byline {
-      margin: 14px 0 36px;
-      color: #66716a;
-      font-size: 1rem;
-    }
-
-    .table-wrap {
-      overflow: hidden;
-      border: 1px solid #dce3d9;
-      border-radius: 8px;
-      background: #fff;
-      box-shadow: 0 12px 34px rgb(39 57 43 / 7%);
-    }
-
-    table {
+    .container {
       width: 100%;
-      border-collapse: collapse;
-      text-align: left;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
     }
 
-    th, td {
-      padding: 20px 24px;
-      vertical-align: top;
+    h1, h2, h3 {
+      color: var(--brand);
+      line-height: 1.2;
+      margin: 0 0 16px;
     }
 
-    thead { background: #edf2e9; }
+    h1 { font-size: clamp(2rem, 6vw, 3rem); }
+    h2 { font-size: clamp(1.6rem, 4vw, 2.1rem); }
+    h3 { font-size: 1.25rem; }
 
-    th {
-      color: #526257;
-      font-size: 0.76rem;
+    p { margin: 0 0 16px; }
+
+    a { color: var(--brand-dark); }
+
+    a:focus-visible {
+      outline: 3px solid var(--brand);
+      outline-offset: 3px;
+    }
+
+    /* Header */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: var(--white);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .header-inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px 24px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      font-size: 1.4rem;
       font-weight: 700;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
+      color: var(--brand);
+      text-decoration: none;
     }
 
-    tbody tr + tr { border-top: 1px solid #e8ece6; }
-
-    .plan-name {
-      display: block;
-      margin-bottom: 5px;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 1.35rem;
-    }
-
-    .plan-note { color: #707a73; font-size: 0.88rem; }
-
-    .price {
-      white-space: nowrap;
-      font-size: 1.08rem;
-      font-weight: 700;
-    }
-
-    .price small {
-      color: #707a73;
-      font-size: 0.82rem;
-      font-weight: 400;
-    }
-
-    ul {
-      display: grid;
-      gap: 7px;
+    .nav ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0 4px;
       margin: 0;
-      padding-left: 18px;
-      color: #46534a;
-      font-size: 0.92rem;
+      padding: 0;
+      list-style: none;
     }
 
-    @media (max-width: 620px) {
-      body { padding: 40px 18px; }
-      .byline { margin-bottom: 28px; }
+    .nav a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 0 10px;
+      border-radius: 6px;
+      color: var(--text);
+      font-size: 1rem;
+      font-weight: 500;
+      text-decoration: none;
+    }
 
-      .table-wrap {
-        overflow: visible;
-        border: 0;
-        background: transparent;
-        box-shadow: none;
-      }
+    .nav a:hover { background: var(--soft); color: var(--brand-dark); }
 
-      table, tbody { display: block; }
-      thead { display: none; }
+    /* Sections */
+    section { padding: 72px 0; scroll-margin-top: 80px; }
+    section:nth-of-type(even) { background: var(--soft); }
 
-      tbody tr {
-        display: grid;
-        gap: 16px;
-        margin-bottom: 14px;
-        padding: 20px;
-        border: 1px solid #dce3d9;
-        border-radius: 8px;
-        background: #fff;
-      }
+    .section-intro {
+      max-width: 680px;
+      color: var(--muted);
+      margin-bottom: 40px;
+    }
 
-      tbody tr + tr { border-top: 1px solid #dce3d9; }
-      td { padding: 0; }
-      td[data-label]::before {
-        display: block;
-        margin-bottom: 7px;
-        color: #68766b;
-        content: attr(data-label);
-        font-size: 0.72rem;
-        font-weight: 700;
-        letter-spacing: 0.06em;
-        text-transform: uppercase;
-      }
+    /* Hero */
+    .hero { padding: 96px 0 88px; }
+
+    .hero p {
+      max-width: 640px;
+      font-size: 1.2rem;
+      color: var(--muted);
+      margin-bottom: 32px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 12px 28px;
+      border-radius: 8px;
+      background: var(--brand);
+      color: var(--white);
+      font-size: 1.2rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .button:hover { background: var(--brand-dark); }
+
+    /* Benefits */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      padding: 28px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+    }
+
+    .card p { margin: 0; color: var(--muted); }
+
+    /* How it works */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 24px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      counter-reset: step;
+    }
+
+    .steps li {
+      counter-increment: step;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: var(--white);
+    }
+
+    .steps li::before {
+      content: counter(step);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      margin-bottom: 14px;
+      border-radius: 50%;
+      background: var(--brand);
+      color: var(--white);
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+
+    .steps strong { display: block; margin-bottom: 4px; }
+    .steps span { color: var(--muted); }
+
+    /* FAQ */
+    .faq-list { max-width: 760px; margin: 0; }
+
+    .faq-list dt {
+      margin-top: 28px;
+      font-size: 1.125rem;
+      font-weight: 700;
+    }
+
+    .faq-list dt:first-child { margin-top: 0; }
+
+    .faq-list dd {
+      margin: 6px 0 0;
+      color: var(--muted);
+    }
+
+    /* Contact */
+    .contact-mail {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+
+    /* Footer */
+    .site-footer {
+      padding: 28px 0;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.9375rem;
+    }
+
+    .site-footer p { margin: 0; }
+
+    @media (max-width: 600px) {
+      section { padding: 56px 0; }
+      .hero { padding: 64px 0 56px; }
+      .header-inner { justify-content: flex-start; }
+      .nav ul { margin-left: -10px; }
+      .button { width: 100%; }
     }
   </style>
 </head>
 <body>
-  <main>
-    <p class="eyebrow">Plans for Acorn</p>
-    <h1>Hello, pricing!</h1>
-    <p class="byline">A little something for every kind of grower. By Jackie.</p>
-
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th scope="col">Plan</th>
-            <th scope="col">Monthly price</th>
-            <th scope="col">Features</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td data-label="Plan"><span class="plan-name">Free</span><span class="plan-note">A fresh start</span></td>
-            <td data-label="Monthly price"><span class="price">€0 <small>/ month</small></span></td>
-            <td data-label="Features"><ul><li>1 garden</li><li>Planting calendar</li><li>Community tips</li></ul></td>
-          </tr>
-          <tr>
-            <td data-label="Plan"><span class="plan-name">Basic</span><span class="plan-note">Room to grow</span></td>
-            <td data-label="Monthly price"><span class="price">€5 <small>/ month</small></span></td>
-            <td data-label="Features"><ul><li>5 gardens</li><li>Personalized reminders</li><li>Seasonal guides</li></ul></td>
-          </tr>
-          <tr>
-            <td data-label="Plan"><span class="plan-name">Pro</span><span class="plan-note">Your green thumb, unleashed</span></td>
-            <td data-label="Monthly price"><span class="price">€12 <small>/ month</small></span></td>
-            <td data-label="Features"><ul><li>Unlimited gardens</li><li>Advanced garden insights</li><li>Priority expert advice</li></ul></td>
-          </tr>
-        </tbody>
-      </table>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="#top">Farm2Door</a>
+      <nav class="nav" aria-label="Main menu">
+        <ul>
+          <li><a href="#benefits">Benefits</a></li>
+          <li><a href="#how">How it works</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
     </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container">
+        <h1>Fresh and affordable organic vegetables, delivered weekly</h1>
+        <p>Get a small or large box of certified organic vegetables from our 12 partner farms, delivered straight to your front door every week.</p>
+        <a class="button" href="#pricing">See pricing</a>
+      </div>
+    </section>
+
+    <section id="benefits">
+      <div class="container">
+        <h2>Benefits</h2>
+        <p class="section-intro">Fresh weekly organic vegetable supplies, without the stress of planning a grocery run or carrying heavy bags. Save time at the supermarket and spend more of it with family and friends.</p>
+        <div class="grid">
+          <div class="card">
+            <h3>Farm to front door</h3>
+            <p>Your vegetables come directly from our 12 partner farms to your front door, every week.</p>
+          </div>
+          <div class="card">
+            <h3>Fresh and certified organic</h3>
+            <p>All our partner farms are certified organic farms carrying the EU organic logo.</p>
+          </div>
+          <div class="card">
+            <h3>Affordable variety</h3>
+            <p>Enjoy access to a large variety of vegetables at an affordable price.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="how">
+      <div class="container">
+        <h2>How it works</h2>
+        <p class="section-intro">Choose the box that fits your household: a small box for singles and couples, or a large box for families with children.</p>
+        <ol class="steps">
+          <li><strong>Select your box</strong><span>Choose a small or large vegetable box.</span></li>
+          <li><strong>Add a bundle</strong><span>Optionally add the egg and cheese bundle.</span></li>
+          <li><strong>Enter your address</strong><span>Tell us where to deliver.</span></li>
+          <li><strong>Choose payment</strong><span>Select your payment method.</span></li>
+          <li><strong>Subscribe</strong><span>Purchase your weekly subscription.</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="pricing">
+      <div class="container">
+        <h2>Pricing</h2>
+        <style>
+          .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 24px;
+          }
+          .pricing-card {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            padding: 28px;
+            background: var(--white);
+            border: 2px solid var(--brand);
+            border-radius: 10px;
+          }
+          .pricing-badge {
+            align-self: flex-start;
+            margin-bottom: 12px;
+            padding: 2px 10px;
+            border-radius: 999px;
+            background: var(--brand);
+            color: var(--white);
+            font-size: 0.8125rem;
+            font-weight: 700;
+          }
+          .pricing-card h3 { font-size: 1.75rem; }
+          .pricing-price { margin: 0; font-size: 2rem; font-weight: 700; line-height: 1.2; }
+          .pricing-price s { color: var(--muted); font-size: 1.25rem; font-weight: 400; }
+          .pricing-unit { color: var(--muted); }
+          .pricing-card ul { margin: 0 0 24px; padding-left: 20px; color: var(--muted); }
+          .pricing-card .button { margin-top: auto; }
+          .pricing-addon {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 24px;
+            padding: 12px 14px;
+            border: 1px dashed var(--brand);
+            border-radius: 8px;
+            background: var(--soft);
+            font-size: 0.9375rem;
+          }
+          .pricing-addon span { color: var(--muted); }
+          .pricing-sticker {
+            position: absolute;
+            top: -26px;
+            right: -18px;
+            width: 108px;
+            height: 96px;
+            transform: rotate(8deg);
+            filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.25)) drop-shadow(0 4px 5px rgba(0, 0, 0, 0.22));
+          }
+          .pricing-sticker svg { display: block; width: 100%; height: 100%; overflow: visible; }
+          .pricing-note { margin: 20px 0 0; color: var(--muted); font-size: 0.875rem; }
+          @media (max-width: 760px) {
+            .pricing-grid { grid-template-columns: 1fr; }
+          }
+        </style>
+        <p class="section-intro">Fresh and affordable – fresh from our 12 partner farms to your front door.</p>
+        <div class="pricing-grid">
+          <div class="pricing-card">
+            <div class="pricing-sticker" role="img" aria-label="Egg &amp; cheese bundle: 6€">
+              <svg viewBox="0 0 84 76" aria-hidden="true">
+                <defs>
+                  <radialGradient id="egg-shade-1" cx="0.38" cy="0.3" r="0.75">
+                    <stop offset="0" stop-color="#fffdf8"/><stop offset="0.55" stop-color="#f1e2c6"/><stop offset="1" stop-color="#cfb68c"/>
+                  </radialGradient>
+                  <linearGradient id="cheese-top-1" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="#ffe48a"/><stop offset="1" stop-color="#f7c843"/>
+                  </linearGradient>
+                  <linearGradient id="cheese-front-1" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0" stop-color="#f6c135"/><stop offset="1" stop-color="#d99a14"/>
+                  </linearGradient>
+                </defs>
+                <g fill="#fff" stroke="#fff" stroke-width="7" stroke-linejoin="round">
+                  <path d="M54,4 C66,4 74,24 74,38 C74,50 65,57 54,57 C43,57 34,50 34,38 C34,24 42,4 54,4 Z"/>
+                  <polygon points="6,46 52,32 72,42 72,62 6,64"/>
+                </g>
+                <path d="M54,4 C66,4 74,24 74,38 C74,50 65,57 54,57 C43,57 34,50 34,38 C34,24 42,4 54,4 Z" fill="url(#egg-shade-1)" stroke="#c4a879" stroke-width="0.6"/>
+                <ellipse cx="47" cy="17" rx="3.5" ry="6" fill="#fff" opacity="0.7" transform="rotate(20 47 17)"/>
+                <polygon points="52,32 72,42 72,62 52,51" fill="#e3a91f" stroke="#b9800c" stroke-width="0.6" stroke-linejoin="round"/>
+                <polygon points="6,46 52,32 72,42" fill="url(#cheese-top-1)" stroke="#c99a1a" stroke-width="0.6" stroke-linejoin="round"/>
+                <polygon points="6,46 72,42 72,62 6,64" fill="url(#cheese-front-1)" stroke="#b9800c" stroke-width="0.6" stroke-linejoin="round"/>
+                <ellipse cx="38" cy="40" rx="3.2" ry="1.4" fill="#e6b22e"/><ellipse cx="55" cy="38" rx="2" ry="0.9" fill="#e6b22e"/>
+                <circle cx="13" cy="57" r="2.2" fill="#c98d10"/><circle cx="66" cy="55" r="2.4" fill="#c98d10"/><circle cx="62" cy="47" r="1.4" fill="#c98d10"/>
+                <text x="39" y="60" text-anchor="middle" font-size="17" font-weight="700" fill="#d0021b" stroke="#fff" stroke-width="3" stroke-linejoin="round" paint-order="stroke">6€</text>
+              </svg>
+            </div>
+            <h3>Small Box</h3>
+            <p class="pricing-price">15,90€</p>
+            <p class="pricing-unit">per week</p>
+            <ul>
+              <li>For singles and couples</li>
+              <li>4 kg vegetables</li>
+            </ul>
+            <div class="pricing-addon">
+              <strong>Optional: Egg &amp; Cheese Bundle</strong>
+              <span>10 eggs and 400g cheese – 8€ per week, reduced launch price 6€ for the first week</span>
+            </div>
+            <a class="button" href="#contact">Choose Small Box</a>
+          </div>
+          <div class="pricing-card">
+            <div class="pricing-sticker" role="img" aria-label="Egg &amp; cheese bundle: 6€">
+              <svg viewBox="0 0 84 76" aria-hidden="true">
+                <defs>
+                  <radialGradient id="egg-shade-2" cx="0.38" cy="0.3" r="0.75">
+                    <stop offset="0" stop-color="#fffdf8"/><stop offset="0.55" stop-color="#f1e2c6"/><stop offset="1" stop-color="#cfb68c"/>
+                  </radialGradient>
+                  <linearGradient id="cheese-top-2" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="#ffe48a"/><stop offset="1" stop-color="#f7c843"/>
+                  </linearGradient>
+                  <linearGradient id="cheese-front-2" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0" stop-color="#f6c135"/><stop offset="1" stop-color="#d99a14"/>
+                  </linearGradient>
+                </defs>
+                <g fill="#fff" stroke="#fff" stroke-width="7" stroke-linejoin="round">
+                  <path d="M54,4 C66,4 74,24 74,38 C74,50 65,57 54,57 C43,57 34,50 34,38 C34,24 42,4 54,4 Z"/>
+                  <polygon points="6,46 52,32 72,42 72,62 6,64"/>
+                </g>
+                <path d="M54,4 C66,4 74,24 74,38 C74,50 65,57 54,57 C43,57 34,50 34,38 C34,24 42,4 54,4 Z" fill="url(#egg-shade-2)" stroke="#c4a879" stroke-width="0.6"/>
+                <ellipse cx="47" cy="17" rx="3.5" ry="6" fill="#fff" opacity="0.7" transform="rotate(20 47 17)"/>
+                <polygon points="52,32 72,42 72,62 52,51" fill="#e3a91f" stroke="#b9800c" stroke-width="0.6" stroke-linejoin="round"/>
+                <polygon points="6,46 52,32 72,42" fill="url(#cheese-top-2)" stroke="#c99a1a" stroke-width="0.6" stroke-linejoin="round"/>
+                <polygon points="6,46 72,42 72,62 6,64" fill="url(#cheese-front-2)" stroke="#b9800c" stroke-width="0.6" stroke-linejoin="round"/>
+                <ellipse cx="38" cy="40" rx="3.2" ry="1.4" fill="#e6b22e"/><ellipse cx="55" cy="38" rx="2" ry="0.9" fill="#e6b22e"/>
+                <circle cx="13" cy="57" r="2.2" fill="#c98d10"/><circle cx="66" cy="55" r="2.4" fill="#c98d10"/><circle cx="62" cy="47" r="1.4" fill="#c98d10"/>
+                <text x="39" y="60" text-anchor="middle" font-size="17" font-weight="700" fill="#d0021b" stroke="#fff" stroke-width="3" stroke-linejoin="round" paint-order="stroke">6€</text>
+              </svg>
+            </div>
+            <h3>Large Box</h3>
+            <p class="pricing-price">27,90€</p>
+            <p class="pricing-unit">per week</p>
+            <ul>
+              <li>For families with children</li>
+              <li>8 kg vegetables</li>
+            </ul>
+            <div class="pricing-addon">
+              <strong>Optional: Egg &amp; Cheese Bundle</strong>
+              <span>10 eggs and 400g cheese – 8€ per week, reduced launch price 6€ for the first week</span>
+            </div>
+            <a class="button" href="#contact">Choose Large Box</a>
+          </div>
+        </div>
+        <p class="pricing-note">Reduced launch price from 8€ to 6€ for an additional Egg and Cheese Bundle for the first week. All prices include VAT.</p>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="container">
+        <h2>FAQ</h2>
+        <dl class="faq-list">
+          <dt>Which box is right for me?</dt>
+          <dd>The small box suits singles and couples. The large box suits families with children.</dd>
+          <dt>Are the vegetables organic?</dt>
+          <dd>Yes. All 12 of our partner farms are certified organic farms (EU organic logo).</dd>
+          <dt>Can I add eggs and cheese?</dt>
+          <dd>Yes. You can add the optional egg and cheese bundle to a small or large box.</dd>
+          <dt>How often is the box delivered?</dt>
+          <dd>Your box is delivered weekly to your front door as part of your subscription.</dd>
+        </dl>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <h2>Contact</h2>
+        <p>Have a question? Send us an e-mail:</p>
+        <a class="contact-mail" href="mailto:info@Farm2Door.com">info@Farm2Door.com</a>
+      </div>
+    </section>
   </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 Farm2Door – student project, fictitious company</p>
+    </div>
+  </footer>
 </body>
 </html>
